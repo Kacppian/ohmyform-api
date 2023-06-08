@@ -34,12 +34,17 @@ COPY --from=builder /usr/src/app /usr/src/app
 
 ENV PORT=3000 \
     SECRET_KEY=ChangeMe \
-    CREATE_ADMIN=FALSE \
+    CREATE_ADMIN=TRUE \
     ADMIN_EMAIL=admin@ohmyform.com \
     ADMIN_USERNAME=root \
     ADMIN_PASSWORD=root \
-    NODE_ENV=production
-
+    NODE_ENV=production        \
+    DATABASE_DRIVER=postgres \
+    DATABASE_HOST=postgres \
+    DATABASE_PORT=5432 \
+    DATABASE_USER=root \
+    DATABASE_PASSWORD=root \
+    DATABASE_NAME=ohmyform
 
 EXPOSE 3000
 

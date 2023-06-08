@@ -19,6 +19,12 @@ export class FormFieldEntity {
   public description: string
 
   @Column({ nullable: true })
+  public imageUrl: string
+
+  @Column({ nullable: true })
+  public ctaText: string
+
+  @Column({ nullable: true })
   public slug?: string
 
   @Column({ nullable: true })

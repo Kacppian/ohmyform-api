@@ -23,6 +23,12 @@ export class AuthService {
 
     try {
       const user = await this.userService.findByUsername(username);
+
+      this.logger.info({
+        username,
+        user
+      });
+
       if (user && await this.passwordService.verify(password, user.passwordHash, user.salt)) {
         return user;
       }

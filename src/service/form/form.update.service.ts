@@ -89,6 +89,14 @@ export class FormUpdateService {
           field.slug = nextField.slug
         }
 
+        if (nextField.imageUrl !== undefined) {
+          field.imageUrl = nextField.imageUrl
+        }
+
+        if (nextField.ctaText !== undefined) {
+          field.ctaText = nextField.ctaText
+        }
+
         if (nextField.logic !== undefined) {
           field.logic = nextField.logic.map(nextLogic => {
             const logic = this.findByIdInList(
@@ -145,6 +153,7 @@ export class FormUpdateService {
             option.title = nextOption.title
             option.value = nextOption.value
             option.key = nextOption.key
+            option.imageUrl = nextOption.imageUrl
 
             return option
           })
