@@ -6,6 +6,9 @@ export class FormCreateInput {
   @Field()
   readonly title: string
 
+  @Field({ nullable: true })
+  readonly tag: string  
+
   @Field()
   readonly language: string
 

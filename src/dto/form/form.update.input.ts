@@ -14,6 +14,9 @@ export class FormUpdateInput {
   readonly title: string
 
   @Field({ nullable: true })
+  readonly tag: string  
+
+  @Field({ nullable: true })
   readonly language: string
 
   @Field({ nullable: true })

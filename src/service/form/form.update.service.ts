@@ -48,6 +48,8 @@ export class FormUpdateService {
       form.isLive = input.isLive
     }
 
+    form.tag = input.tag;
+
     if (input.fields !== undefined) {
       form.fields = input.fields.map((nextField) => {
         let field = this.findByIdInList(

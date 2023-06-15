@@ -25,6 +25,9 @@ export class FormEntity {
   @Column()
   public title: string
 
+  @Column({ nullable: true })
+  public tag: string
+
   @Column({ length: 10 })
   public language: string
 
