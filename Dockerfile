@@ -22,7 +22,7 @@ RUN npm prune --production
 # run node prune
 RUN /usr/local/bin/node-prune
 
-FROM node:14-alpine
+FROM --platform=linux/amd64 node:14-alpine
 MAINTAINER OhMyForm <admin@ohmyform.com>
 
 # Create a group and a user with name "ohmyform".
@@ -32,16 +32,21 @@ WORKDIR /usr/src/app
 
 COPY --from=builder /usr/src/app /usr/src/app
 
-ENV PORT=3000 \
+ENV PORT=4100 \
     SECRET_KEY=ChangeMe \
-    CREATE_ADMIN=FALSE \
+    CREATE_ADMIN=TRUE \
     ADMIN_EMAIL=admin@ohmyform.com \
     ADMIN_USERNAME=root \
     ADMIN_PASSWORD=root \
-    NODE_ENV=production
+    NODE_ENV=production        \
+    DATABASE_DRIVER=postgres \
+    DATABASE_HOST=postgres \
+    DATABASE_PORT=5432 \
+    DATABASE_USER=root \
+    DATABASE_PASSWORD=root \
+    DATABASE_NAME=ohmyform
 
-
-EXPOSE 3000
+EXPOSE 4100
 
 # Change to non-root privilege
 USER ohmyform

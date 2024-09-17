@@ -11,6 +11,9 @@ export class FormModel {
   @Field()
   readonly title: string
 
+  @Field({ nullable: true })
+  readonly tag: string
+
   @Field()
   readonly created: Date
 
@@ -35,5 +38,6 @@ export class FormModel {
     this.language = form.language
     this.showFooter = form.showFooter
     this.anonymousSubmission = form.anonymousSubmission
+    this.tag = form.tag
   }
 }

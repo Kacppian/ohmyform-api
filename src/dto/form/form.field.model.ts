@@ -11,6 +11,12 @@ export class FormFieldModel {
   @Field()
   readonly title: string
 
+  @Field()
+  readonly imageUrl?: string  
+
+  @Field()
+  readonly ctaText?: string  
+
   @Field({ nullable: true })
   readonly slug?: string
 
@@ -39,5 +45,7 @@ export class FormFieldModel {
     this.description = document.description
     this.required = document.required
     this.defaultValue = document.defaultValue
+    this.ctaText = document.ctaText
+    this.imageUrl = document.imageUrl
   }
 }

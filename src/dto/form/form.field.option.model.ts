@@ -17,11 +17,15 @@ export class FormFieldOptionModel {
   @Field()
   readonly value: string
 
+  @Field()
+  readonly imageUrl?: string  
+
   constructor(id: string, option: FormFieldOptionEntity) {
     this._id = option.id
     this.id = id
     this.key = option.key
     this.title = option.title
     this.value = option.value
+    this.imageUrl = option.imageUrl
   }
 }

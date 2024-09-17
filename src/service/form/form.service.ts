@@ -63,4 +63,20 @@ export class FormService {
 
     return form
   }
+
+  async findByTag(tag: string, existing?: FormEntity): Promise<FormEntity> {
+    if (existing) return existing
+
+    const form = await this.formRepository.findOne({
+      where: {
+        tag: tag
+      }
+    });
+
+    if (!form) {
+      throw new Error('no form found')
+    }
+
+    return form
+  }
 }

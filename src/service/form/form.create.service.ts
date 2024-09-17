@@ -25,6 +25,7 @@ export class FormCreateService {
     form.anonymousSubmission = Boolean(input.anonymousSubmission)
     form.language = input.language || 'en'
     form.design.layout = input.layout
+    form.tag = input.tag
 
 
     form.endPage = this.formPageCreateService.create(input.endPage)

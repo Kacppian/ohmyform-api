@@ -17,4 +17,7 @@ export class FormFieldOptionEntity {
 
   @Column()
   public value: string
+
+  @Column({ nullable: true })
+  public imageUrl?: string
 }

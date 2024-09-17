@@ -48,6 +48,8 @@ export class FormUpdateService {
       form.isLive = input.isLive
     }
 
+    form.tag = input.tag;
+
     if (input.fields !== undefined) {
       form.fields = input.fields.map((nextField) => {
         let field = this.findByIdInList(
@@ -87,6 +89,14 @@ export class FormUpdateService {
 
         if (nextField.slug !== undefined) {
           field.slug = nextField.slug
+        }
+
+        if (nextField.imageUrl !== undefined) {
+          field.imageUrl = nextField.imageUrl
+        }
+
+        if (nextField.ctaText !== undefined) {
+          field.ctaText = nextField.ctaText
         }
 
         if (nextField.logic !== undefined) {
@@ -145,6 +155,7 @@ export class FormUpdateService {
             option.title = nextOption.title
             option.value = nextOption.value
             option.key = nextOption.key
+            option.imageUrl = nextOption.imageUrl
 
             return option
           })

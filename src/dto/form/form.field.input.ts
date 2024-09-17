@@ -21,6 +21,12 @@ export class FormFieldInput {
   readonly idx?: number
 
   @Field()
+  readonly imageUrl?: string  
+
+  @Field()
+  readonly ctaText?: string 
+
+  @Field()
   readonly description: string
 
   @Field()

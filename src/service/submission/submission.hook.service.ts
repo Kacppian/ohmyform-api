@@ -5,12 +5,14 @@ import { PinoLogger } from 'nestjs-pino'
 import { lastValueFrom } from 'rxjs'
 import { serializeError } from 'serialize-error'
 import { SubmissionEntity } from '../../entity/submission.entity'
+import { IdService } from '../id.service'
 
 @Injectable()
 export class SubmissionHookService {
   constructor(
     private httpService: HttpService,
     private readonly logger: PinoLogger,
+    private readonly idService: IdService,
   ) {
     logger.setContext(this.constructor.name)
   }
@@ -51,8 +53,8 @@ export class SubmissionHookService {
     })
 
     const data = {
-      form: submission.form.id,
-      submission: submission.id,
+      form: this.idService.encode(submission.form.id),
+      submission: this.idService.encode(submission.id),
       created: submission.created,
       lastModified: submission.lastModified,
       fields: submission.fields.map((submissionField) => {
